@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-extension SizedBoxExtention on double {
-  SizedBox get height => SizedBox(
+extension EmptySpaceExtention on double {
+  SizedBox get verticalSpace => SizedBox(
         height: toDouble(),
       );
-  SizedBox get width => SizedBox(
+  SizedBox get horizontalSpace => SizedBox(
         width: toDouble(),
       );
 }
