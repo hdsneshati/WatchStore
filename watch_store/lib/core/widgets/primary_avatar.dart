@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:watch_store/component/extention.dart';
+import 'package:watch_store/component/text_style.dart';
 import 'package:watch_store/res/dimens.dart';
-import 'package:watch_store/screens/send_otp_screen.dart';
+import 'package:watch_store/res/strings.dart';
 
 class PrimaryAvatar extends StatelessWidget {
   const PrimaryAvatar({super.key});
@@ -17,10 +18,11 @@ class PrimaryAvatar extends StatelessWidget {
             width: 100,
             height: 100,
             fit: BoxFit.cover,
+            
           ) ,
         ),
         AppDimens.medium.verticalSpace,
-
+       const  Text(AppStrings.chooseProfileImage,style:  AppTextStyles.avatarText,)
        ], 
       );
     

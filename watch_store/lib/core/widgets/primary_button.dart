@@ -4,7 +4,7 @@ import 'package:watch_store/component/button_style.dart';
 class PrimaryButton extends StatelessWidget {
  final String label;
  final VoidCallback onPressed;
-   PrimaryButton({
+  const PrimaryButton({
     required this.label, 
     required this.onPressed,
     super.key});
@@ -21,7 +21,7 @@ class PrimaryButton extends StatelessWidget {
         style: AppButtonStyle.primaryButtonStyle,
         child:  Text(
           label,
-          style: TextStyle(color: Colors.white, fontSize: 16),
+          style:const TextStyle(color: Colors.white, fontSize: 16),
         ),
       ),
     ) ;
