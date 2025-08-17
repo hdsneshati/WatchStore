@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:watch_store/screens/get_otp_screen.dart';
-import 'package:watch_store/screens/register_screen.dart';
-import 'package:watch_store/screens/send_otp_screen.dart';
+import 'package:watch_store/routing/routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,10 +11,10 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-     
-     
-      home:  RegisterScreen(),
+    return MaterialApp.router(
+      title: 'Watch Store',
+      routerConfig: routs,
+     // home:  RegisterScreen(),
     );
   }
 }
