@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:watch_store/component/extention.dart';
+import 'package:watch_store/component/text_style.dart';
 import 'package:watch_store/res/dimens.dart';
 
 class AppTextFeild extends StatelessWidget {
   final String lable;
-   String prefixlabel;
+  final String prefixlabel;
   final String hint;
-  TextEditingController controller;
+ final TextEditingController controller;
   final TextAlign textAlign;
-  Widget icon;
-  TextInputType? inputType;
-   AppTextFeild({
+ final Widget icon;
+ final TextInputType? inputType;
+ 
+ const  AppTextFeild({
      this.prefixlabel = '', 
     required this.lable, 
     required this.hint, 
@@ -25,7 +27,7 @@ class AppTextFeild extends StatelessWidget {
        Size size = MediaQuery.of(context).size;
 
     return Padding(
-      padding:EdgeInsets.all(AppDimens.medium),
+      padding:const EdgeInsets.all(AppDimens.medium),
       child: 
         Column(
           crossAxisAlignment: CrossAxisAlignment.end,
@@ -36,8 +38,8 @@ class AppTextFeild extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(prefixlabel),
-                Text(lable),
+                Text(prefixlabel,style: AppTextStyles.title,),
+                Text(lable,style: AppTextStyles.title,),
               ],
             ),
           ),
@@ -50,6 +52,7 @@ class AppTextFeild extends StatelessWidget {
               controller: controller,
               keyboardType: inputType,
               decoration: InputDecoration(
+             //   hintStyle: AppTextStyles.hint,
                 hintText: hint,
                 prefixIcon: icon,
               ),
