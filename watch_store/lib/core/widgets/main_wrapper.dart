@@ -79,7 +79,7 @@ class _MainWrapperState extends State<MainWrapper> {
               icon: 
               SvgPicture.asset(
                 SvgPath.home,
-                colorFilter: ColorFilter.mode(
+                colorFilter:const ColorFilter.mode(
                     Colors.grey,
                     BlendMode.srcIn),
               ),
@@ -87,7 +87,7 @@ class _MainWrapperState extends State<MainWrapper> {
               selectedIcon:
                SvgPicture.asset(
                 SvgPath.home,
-                colorFilter: ColorFilter.mode(
+                colorFilter:const ColorFilter.mode(
                     Colors.black, BlendMode.srcIn),
               ),
               label: 'خانه',
@@ -96,13 +96,13 @@ class _MainWrapperState extends State<MainWrapper> {
             NavigationDestination(
               icon: SvgPicture.asset(
                 SvgPath.product,
-                colorFilter: ColorFilter.mode(
+                colorFilter:const ColorFilter.mode(
                     Colors.grey,
                     BlendMode.srcIn),
               ),
               selectedIcon: SvgPicture.asset(
                 SvgPath.product,
-                colorFilter: ColorFilter.mode(
+                colorFilter:const ColorFilter.mode(
                     Colors.black, BlendMode.srcIn),
               ),
               label: 'سبد خرید',
@@ -110,13 +110,13 @@ class _MainWrapperState extends State<MainWrapper> {
             NavigationDestination(
               icon: SvgPicture.asset(
                 SvgPath.avatar,
-                colorFilter: ColorFilter.mode(
+                colorFilter:const ColorFilter.mode(
                     Colors.grey,
                     BlendMode.srcIn),
               ),
               selectedIcon: SvgPicture.asset(
                 SvgPath.avatar,
-                colorFilter: ColorFilter.mode(
+                colorFilter:const ColorFilter.mode(
                     Colors.black, BlendMode.srcIn),
               ),
               label: 'پروفایل',

@@ -4,9 +4,10 @@ import 'package:flutter/material.dart';
 
 class AppSliderHome extends StatefulWidget {
  const AppSliderHome({
+  required this.images ,
     super.key,
   });
-
+  final List<String> images ;
   @override
   State<AppSliderHome> createState() => _AppSliderHomeState();
 }
@@ -65,29 +66,39 @@ class _AppSliderHomeState extends State<AppSliderHome> {
               }).toList(),
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: images.map((image) {
-                return Center(
-                  child: GestureDetector(
-                    onTap: () {
-                          //_controller.animateToPage(1); // اینجا ایندکس رو میگیریم
+                                mainAxisAlignment: MainAxisAlignment.center,
 
-                      
-                    },
-                    child: Container(
-                      padding:const EdgeInsets.all(20.0),
-                      width: 12,
-                      height: 12,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: _current == images.indexOf(image)
-                            ? Colors.black
-                            : Colors.grey,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: images.map((image) {
+                    return Center(
+                      child: GestureDetector(
+                        onTap: () {
+                              //_controller.animateToPage(1); // اینجا ایندکس رو میگیریم
+                
+                          
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            padding:const EdgeInsets.all(20.0),
+                            margin: const EdgeInsets.symmetric(horizontal: 9.0),
+                            width: 12,
+                            height: 12,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: _current == images.indexOf(image)
+                                  ? Colors.black
+                                  : Colors.grey,
+                            ),
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                );
-              }).toList(),
+                    );
+                  }).toList(),
+                ),
+              ],
             ),
           ],
         ),

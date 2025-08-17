@@ -10,7 +10,7 @@ class ProductScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Product Screen'),
       ),
-      body: Center(
+      body:const Center(
         child: Text(
           'Details of the selected product will be displayed here.',
          // style: TextStyle(fontSize: 18),
