@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:watch_store/component/extention.dart';
+import 'package:watch_store/component/text_style.dart';
 import 'package:watch_store/core/widgets/primary_button.dart';
 import 'package:watch_store/res/dimens.dart';
 import 'package:watch_store/res/strings.dart';
@@ -7,7 +9,7 @@ import 'package:watch_store/core/widgets/app_text_feild.dart';
 
 class GetOtpScreen extends StatelessWidget {
   GetOtpScreen({super.key});
-  TextEditingController controller = TextEditingController();
+ final TextEditingController controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +28,7 @@ class GetOtpScreen extends StatelessWidget {
             Text(AppStrings.otpCodeSendFor
                 .replaceAll(AppStrings.replace, '09024365997')),
             AppDimens.small.verticalSpace,
-            Text(AppStrings.wrongNumberEditNumber),
+         const   Text(AppStrings.wrongNumberEditNumber,style: AppTextStyles.primaryThemeTextStyle,),
             AppDimens.large.verticalSpace,
             AppTextFeild(
               lable: AppStrings.enterVerificationCode,
@@ -39,6 +41,7 @@ class GetOtpScreen extends StatelessWidget {
             PrimaryButton(
                 label: AppStrings.next,
                 onPressed: () {
+                  context.pushNamed("/mainwrapper");
                   // Handle button press
                 }),
           ],
