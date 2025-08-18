@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:watch_store/assets/svg_path.dart';
 import 'package:watch_store/features/home/Screens/homescreen.dart';
-import 'package:watch_store/features/product/productscreen.dart';
+import 'package:watch_store/features/product/screens/productscreen.dart';
 import 'package:watch_store/features/profile/profilescreen.dart';
 
 class MainWrapper extends StatefulWidget {
