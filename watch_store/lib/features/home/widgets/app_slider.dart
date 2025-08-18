@@ -22,7 +22,7 @@ class _AppSliderHomeState extends State<AppSliderHome> {
   int _current = 0;
 
   //لیستی از ویجت ها برای اسلایدر
-  final CarouselSliderController _controller = CarouselSliderController();
+  //final CarouselSliderController _controller = CarouselSliderController();
 
   @override
   Widget build(BuildContext context) {
