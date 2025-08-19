@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:watch_store/assets/svg_path.dart';
 import 'package:watch_store/component/extention.dart';
 import 'package:watch_store/component/text_style.dart';
-import 'package:watch_store/features/product/widgets/cart_badge.dart';
+import 'package:watch_store/core/widgets/cart_badge.dart';
 import 'package:watch_store/res/colors.dart';
 import 'package:watch_store/res/dimens.dart';
 
