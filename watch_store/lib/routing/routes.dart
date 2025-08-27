@@ -5,6 +5,8 @@ import 'package:watch_store/core/widgets/main_wrapper.dart';
 import 'package:watch_store/features/auth/get_otp_screen.dart';
 import 'package:watch_store/features/auth/register_screen.dart';
 import 'package:watch_store/features/auth/send_otp_screen.dart';
+import 'package:watch_store/features/product/screens/cart_screen.dart';
+import 'package:watch_store/features/product/screens/product_single_screen.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
@@ -30,5 +32,14 @@ final GoRouter routs =
     name: "/mainwrapper",
     builder: (context, state) =>const  MainWrapper(),
   ),
- 
+  GoRoute(
+    path: '/productsinglescreen',
+    name: "productsinglescreen",
+    builder: (context, state) =>const  ProductSingleScreen(),
+  ),
+  GoRoute(
+    path: '/cartscreen',
+    name: "cartscreen",
+    builder: (context, state) =>const  CartScreen(),
+  ),
 ]);
