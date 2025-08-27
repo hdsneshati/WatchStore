@@ -7,8 +7,8 @@ import 'package:watch_store/res/dimens.dart';
 import 'package:watch_store/res/strings.dart';
 import 'package:watch_store/core/widgets/app_text_feild.dart';
 
-class GetOtpScreen extends StatelessWidget {
-  GetOtpScreen({super.key});
+class VerifyCodeScreen extends StatelessWidget {
+  VerifyCodeScreen({super.key});
  final TextEditingController controller = TextEditingController();
 
   @override
