@@ -34,6 +34,9 @@ class AmazingScrollerProduct extends StatelessWidget {
                   productOldPrice: 1900000,
                   productDiscount: 20,
                  productTimer:22,
+                 ontap: () {
+                  // Navigator.push(context, MaterialPageRoute(builder: (context)=> const ProductSingleScreen()));
+                 },
                 );
               },
               scrollDirection: Axis.horizontal, //عمودی کردن
@@ -56,7 +59,9 @@ class ProductItem extends StatelessWidget {
   final int productOldPrice;
   final int productDiscount;
   final int productTimer;
+  final VoidCallback ontap;
   const ProductItem({
+    required this.ontap,
     required this.productName,
     required this.productImage, 
     required this.productPrice,
@@ -68,92 +73,95 @@ class ProductItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(AppDimens.small),
-      margin: const EdgeInsets.all(AppDimens.medium),
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [
-            AppColors.productBgGradiant[0],
-            AppColors.productBgGradiant[1],
-          ],
-          end: Alignment.bottomCenter,
-          begin: Alignment.topCenter,
+    return InkWell(
+      onTap:ontap,
+      child: Container(
+        padding: const EdgeInsets.all(AppDimens.small),
+        margin: const EdgeInsets.all(AppDimens.medium),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              AppColors.productBgGradiant[0],
+              AppColors.productBgGradiant[1],
+            ],
+            end: Alignment.bottomCenter,
+            begin: Alignment.topCenter,
+          ),
+          borderRadius:
+              BorderRadius.circular(AppDimens.medium.h),
         ),
-        borderRadius:
-            BorderRadius.circular(AppDimens.medium.h),
-      ),
-      width: 200.w,
-      child: Column(
-        children: [
-          Image.asset(
-            productImage,
-            width: 180.w,
-            height: 100.h,
-            fit: BoxFit.cover,
-          ),
-          Align(
-            alignment: Alignment.centerRight,
-            child: Text(
-              productName,
-              style: AppTextStyles.productTitle,
+        width: 200.w,
+        child: Column(
+          children: [
+            Image.asset(
+              productImage,
+              width: 180.w,
+              height: 100.h,
+              fit: BoxFit.cover,
             ),
-          ),
-          AppDimens.large.verticalSpace,
-          Row(
-            mainAxisAlignment:
-                MainAxisAlignment.spaceBetween,
-            children: [
-             Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    ' ${productPrice.separateWithComma } ',
-                    style: AppTextStyles.title,
-                  ),
-                  Visibility(
-                    visible: productOldPrice > 0?true:false,
+            Align(
+              alignment: Alignment.centerRight,
+              child: Text(
+                productName,
+                style: AppTextStyles.productTitle,
+              ),
+            ),
+            AppDimens.large.verticalSpace,
+            Row(
+              mainAxisAlignment:
+                  MainAxisAlignment.spaceBetween,
+              children: [
+               Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      ' ${productPrice.separateWithComma } ',
+                      style: AppTextStyles.title,
+                    ),
+                    Visibility(
+                      visible: productOldPrice > 0?true:false,
+                      child: Text(
+                        '${productOldPrice.separateWithComma } ',
+                        style: AppTextStyles.oldPriceStyle,
+                      ),
+                    ),
+                  ],
+                ),
+                Visibility(
+                  visible: productDiscount > 0? true : false,
+                  child: Container(
+                    padding: const EdgeInsets.all(
+                        AppDimens.small * 0.5),
+                    decoration: BoxDecoration(
+                      color: Colors.red,
+                      borderRadius:
+                          BorderRadius.circular(40.h),
+                    ),
                     child: Text(
-                      '${productOldPrice.separateWithComma } ',
-                      style: AppTextStyles.oldPriceStyle,
+                    ' $productDiscount%',
+                      
                     ),
                   ),
-                ],
+                )
+              ],
+            ),
+            Visibility(
+              visible: productTimer != 0 ? true : false,
+              child: Container(
+                height: 2.h,
+                width: double.infinity,
+                color: AppColors.primaryColor,
               ),
-              Visibility(
-                visible: productDiscount > 0? true : false,
-                child: Container(
-                  padding: const EdgeInsets.all(
-                      AppDimens.small * 0.5),
-                  decoration: BoxDecoration(
-                    color: Colors.red,
-                    borderRadius:
-                        BorderRadius.circular(40.h),
-                  ),
-                  child: Text(
-                  ' $productDiscount%',
-                    
-                  ),
-                ),
-              )
-            ],
-          ),
-          Visibility(
-            visible: productTimer != 0 ? true : false,
-            child: Container(
-              height: 2.h,
-              width: double.infinity,
-              color: AppColors.primaryColor,
             ),
-          ),
-          Visibility(
-            visible: productTimer != 0 ? true : false,
-            child: Text(
-              '$productTimer',
-              style: AppTextStyles.prodTimerStyle,
+            Visibility(
+              visible: productTimer != 0 ? true : false,
+              child: Text(
+                '$productTimer',
+                style: AppTextStyles.prodTimerStyle,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
