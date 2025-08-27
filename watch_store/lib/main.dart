@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:size_config/size_config.dart';
+import 'package:watch_store/feature/presentation/auth/cubit/auth_cubit.dart';
 import 'package:watch_store/routing/routes.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -16,17 +17,22 @@ class MyApp extends StatelessWidget {
       referenceHeight: 900,
       referenceWidth: 360,
       builder: (context, orientation) {
-        return MaterialApp.router(
-          title: 'Watch Store',
-          routerConfig: routs,
-          // home:  RegisterScreen(),
-        );
+        return BlocProvider(
+          create: (context) => AuthCubit(),
+           child: Builder(
+            builder: (context) {
+              final authCubit = context.read<AuthCubit>();
+              final router = createRouter(authCubit);
+
+          return MaterialApp.router(
+            title: 'Watch Store',
+            routerConfig: router,
+            // home:  RegisterScreen(),
+          );
+        } 
+         ) 
+         );
       },
     );
   }
 }
-
-
-
-
-
