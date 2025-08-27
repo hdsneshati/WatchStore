@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:watch_store/assets/svg_path.dart';
 import 'package:watch_store/core/widgets/cart_badge.dart';
-import 'package:watch_store/features/home/Screens/homescreen.dart';
-import 'package:watch_store/features/product/screens/productscreen.dart';
-import 'package:watch_store/features/profile/profilescreen.dart';
+import 'package:watch_store/feature/presentation/home/Screens/homescreen.dart';
+import 'package:watch_store/feature/presentation/product/screens/productscreen.dart';
+import 'package:watch_store/feature/presentation/profile/profilescreen.dart';
 
 class MainWrapper extends StatefulWidget {
   const MainWrapper({super.key, this.startIndex});
