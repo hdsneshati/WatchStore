@@ -1,10 +1,15 @@
 import 'package:shared_preferences/shared_preferences.dart';
 class SharedPreferencesManager {
   SharedPreferences? _preferences; 
+
+  
   SharedPreferencesManager._privateConstructor();
+
 
   static final SharedPreferencesManager _instance =   SharedPreferencesManager._privateConstructor();
 
+/*هر وقت بخوای یک نمونه از این کلاس بسازی (SharedPreferencesManager())، درواقع همون نمونه‌ی یکتا (_instance) برگردونده میشه.
+ به همین دلیل Singleton میشه*/
   factory SharedPreferencesManager(){
     return _instance;
   }
@@ -38,4 +43,8 @@ class SharedPreferencesManager {
    Future<void> remove(String key) async{
     await _preferences?.remove(key);
    }
+
+    Future<void> clear() async {
+    await _preferences?.clear();
+  }
 }
