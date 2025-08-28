@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:size_config/size_config.dart';
 import 'package:watch_store/feature/presentation/auth/cubit/auth_cubit.dart';
 import 'package:watch_store/routing/routes.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-void main() {
+import 'package:watch_store/utils/shared_preferences_manager.dart';
+void main() async{
+ WidgetsFlutterBinding.ensureInitialized();//اصول اینیشیالایز شدن
+ await SharedPreferencesManager().init();
   runApp(const MyApp());
 }
 

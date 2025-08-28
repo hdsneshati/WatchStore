@@ -2,7 +2,9 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:dio/dio.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:watch_store/feature/data/source/contanst.dart';
+import 'package:watch_store/utils/shared_preferences_manager.dart';
 part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {
@@ -14,9 +16,10 @@ class AuthCubit extends Cubit<AuthState> {
       await _dio.post(Endpoint.sendSms, data: {"mobile": mobile}).then((value) {
         debugPrint(value.toString());
         if (value.statusCode == 201) {
-          print('code date:');
-          print(value.data["data"]["code"]);
-
+          SharedPreferencesManager().saveString("token",value.data["data"]["code"]);
+        SharedPreferencesManager().getString("token");
+        
+         print(SharedPreferencesManager().getString("token"),);
           emit(AuthSendState());
         } else {
           emit(AuthErrorState());
